@@ -17,3 +17,10 @@ describe('GET /tasks', () => {
     expect(res.body[0]).toHaveProperty('title');
   });
 });
+
+describe('GET /foo', () => {
+  it('should return 404 for undefined routes', async () => {
+    const res = await request(app).get('/foo');
+    expect(res.statusCode).toBe(404);
+  });
+});
